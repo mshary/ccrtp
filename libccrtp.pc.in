@@ -1,0 +1,8 @@
+Name: libccrtp
+Description: GNU ccRTP core library
+Version: @VERSION@
+Requires: commoncpp >= @USES_UCOMMON_REQUIRED@
+Libs:  -lccrtp
+
+
+

@@ -1,0 +1,8 @@
+Name: libccrtp
+Description: GNU ccRTP core library
+Version: 2.1.2
+Requires: commoncpp >= 6.2.2
+Libs:  -lccrtp
+
+
+

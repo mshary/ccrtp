@@ -1,0 +1,33 @@
+# $Id: PKGBUILD 183863 2013-04-28 20:45:50Z eric $
+# Maintainer:
+# Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Jeff Mickey <jeff@archlinux.org>
+# Contributor: John Proctor <jproctor@prium.net>
+# Contributor: Alexander Rødseth <rodseth@gmail.com>
+
+pkgname=ccrtp
+pkgver=@VERSION@
+pkgrel=0
+epoch=9
+pkgdesc="An implementation of RTP, the real-time transport protocol from the IETF"
+arch=('i686' 'x86_64')
+url="http://www.gnu.org/software/ccrtp/"
+license=('GPL' 'custom')
+depends=('ucommon>=@USES_UCOMMON_REQUIRED@' 'libgcrypt')
+options=('!libtool')
+install=$pkgname.install
+source=("$pkgname-$pkgver.tar.gz")
+md5sums=('SKIP')
+
+build() {
+  cd ${pkgname}-${pkgver}
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd ${pkgname}-${pkgver}
+  make DESTDIR="${pkgdir}" install
+
+  install -Dm644 COPYING.addendum "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
