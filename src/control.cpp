@@ -388,9 +388,10 @@ QueueRTCPManager::takeInControlPacket()
     } else if ( RTCPPacket::tSR == pkt->fh.type ){
         if ( checkSSRCInRTCPPkt(*sourceLink,source_created,
                     network_address,
-                    transport_port) )
+                    transport_port) ) {
             sourceLink->lastRTCPSRTime = recvtime;
-            onGotSR(*s,pkt->info.SR,pkt->fh.block_count);
+		}
+        onGotSR(*s,pkt->info.SR,pkt->fh.block_count);
         // Advance to the next packet in the compound.
         pointer += pkt->getLength();
         pkt = reinterpret_cast<RTCPPacket *>(rtcpRecvBuffer +pointer);
