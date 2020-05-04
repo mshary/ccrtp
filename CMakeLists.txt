@@ -63,8 +63,8 @@ else()
 	set(CMAKE_MODULE_PATH "${CMAKE_INSTALL_FULL_DATADIR}/ucommon/cmake")
 endif()
 
-include(CapeConfig)
-include(CapeMakeTargets)
+include(cmake/CapeConfig.cmake)
+include(cmake/CapeMakeTargets.cmake)
 
 enable_arg(srtp true)
 
